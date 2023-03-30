@@ -1,8 +1,25 @@
 public class Main {
-    public static void main(String...args) throws InterruptedException {
-        for (int i=0;i<4;i++){
+
+    public static final int NPILOTI = 8;
+
+    public static void main(String[] args){
+
+        Thread[] piloti = new Thread[NPILOTI];
+        int i;
+
+        System.out.println("*== I ragazzi entrano ==*");
+
+        for (i=0;i<NPILOTI;i++){
             Pilota p = new Pilota(String.valueOf(i));
-            p.start();
+            piloti[i] = new Thread(p);
+            piloti[i].start();
         }
+
+
+
+
     }
 }
+
+
+
